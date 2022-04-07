@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timer With 🔔</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css ">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1 style="text-align: center;">🔔Pomodoro with Todo list <i class="fas fa-business-time"></i> For Quoc Dai Jobs🔔</h1>
+  <div class="w50">
+    <p id="idName" style="height: 10px; font-size: x-large;"></p>
+
+    <div class="clock">
+      <div class="mins">0</div>
+      <div>:</div>
+      <div class="secs">00</div>
+      <audio src="http://soundbible.com/mp3/service-bell_daniel_simion.mp3"></audio>
+      <svg class="progress-ring" style="height: 127px; width: 127px;">
+        <circle class="progress-ring__circle" stroke-width="8" fill="transparent" r="50" cx="60" cy="60" />
+      </svg>
+    </div>
+
+    <div class="btn-group">
+      <button class="start" onclick="btnStart()">start focus</button>
+      <button class="reset" onclick="btnReset()">reset</button>
+      <button class="pause" onclick="btnPause()">pause</button>
+    </div>
+
+    <form action=".">
+      <label for="focusTime">Focus Time</label>
+      <input type="number" value="25" id="focusTime" readonly />
+      <label for="breakTime">Break Time</label>
+      <input type="number" value="5" id="breakTime" />
+      <button type="submit">Save settings</button>
+    </form>
+  </div>
+
+  <div class="container">
+    <div class="create_job">
+      <label style="font-size: 17px;margin-right: 15px;" for="jobname">
+        <b>Job name</b>
+      </label>
+      <input type="text" class="form-control" id="jobname" style="margin-right: 148px;" placeholder="Enter Job Name"><br>
+      <label style="font-size: 17px;margin-right: 15px;" for="jobname">
+        <b>Timer</b>
+      </label>    
+
+      <input type="number" class="form-control" id="jobtime" 
+      onKeyUp="if(this.value>25){this.value='25';}else if(this.value<0){this.value='1';}" min="1" max="25" placeholder="Enter number!" >
+      <button class="btn" onclick="createJob()">Create</button>
+    </div>
+    <div class="show_job">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <th>ID</th>
+          <th>Job name</th>
+          <th>Timer</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <script src="task.js"></script>
+  <script src="settings.js"></script>
+  <script src="timer.js"></script>
+  <script src="progress.js"></script>
+</body>
+
+</html>
